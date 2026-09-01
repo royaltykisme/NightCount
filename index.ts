@@ -53,7 +53,7 @@ await server.register(fastifyHelmet, {
 server.register(routes);
 
 const PORT: number = Number(process.env.PORT) || 8080;
-const HOST: string = process.env.HOST || "127.0.0.1";
+const HOST: string = process.env.HOST || "0.0.0.0";
 
 try {
   await server.listen({ port: PORT, host: HOST });

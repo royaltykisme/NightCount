@@ -139,6 +139,7 @@ export default defineConfig({
     exclude: ["@pkgs/Helium", "src/pkgs/Helium"],
   },
   server: {
+    host: "0.0.0.0",
     allowedHosts: allowedHosts,
     // Cross-origin isolation: required for SharedArrayBuffer + Atomics
     // (Scramjet, Neutron content-script isolation, helium ISOLATED world).
@@ -162,17 +163,17 @@ export default defineConfig({
     },
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "http://127.0.0.1:8080",
         changeOrigin: true,
       },
       "/wisp/": {
-        target: "ws://localhost:8080/wisp/",
+        target: "ws://127.0.0.1:8080/wisp/",
         changeOrigin: true,
         ws: true,
         rewrite: (path) => path.replace(/^\/wisp\//, ""),
       },
       "/auth": {
-        target: "http://localhost:8080",
+        target: "http://127.0.0.1:8080",
         changeOrigin: true,
       },
     },
