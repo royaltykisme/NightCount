@@ -11,10 +11,10 @@ export function prettyUrlsPlugin() {
         const query = req.url?.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
         if (
           routeOnly &&
-          /^\/internal\/[^/]+$/.test(routeOnly) &&
+          /^\/internal\/[^/]+\/?$/.test(routeOnly) &&
           !routeOnly.endsWith(".html")
         ) {
-          req.url = `${routeOnly}/index.html${query}`;
+          req.url = `${routeOnly.replace(/\/+$/, "")}/index.html${query}`;
         }
 
         const resolvedRoute = (req.url || "").split("?")[0];

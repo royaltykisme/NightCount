@@ -18,11 +18,11 @@ class Windowing implements WindowingInterface {
     window.open(currentUrl, "_blank", "noopener,noreferrer");
   }
 
-  async aboutBlankWindow() {
+  async aboutBlankWindow(contentUrl = location.href) {
     if (window === window.top) {
       const aboutBlankTab = window.open("about:blank", "_blank");
       const iframe = document.createElement("iframe");
-      iframe.src = location.href;
+      iframe.src = contentUrl;
       iframe.setAttribute(
         "style",
         "width: 100%; height: 100%; border: none; position: fixed; inset: 0px; outline: none; scrolling: auto;",

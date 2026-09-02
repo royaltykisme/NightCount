@@ -174,7 +174,16 @@ class NewTabShortcuts {
 								'button',
 								{
 									class: 'grid place-items-center rounded-full h-7 w-7 text-[var(--text)]/80 hover:bg-[var(--white-05)]',
-									'data-tooltip': 'Share',
+							),
+							this.ui.createElement(
+								'button',
+								{
+									class: 'newtab-classes-link text-xs text-[var(--text)]/70 hover:text-[var(--text)]',
+									'aria-label': 'Open Classes',
+									onclick: () => window.parent.tabs?.createTab('ddx://classroom/')
+								},
+								['Classes']
+							)
 									'data-side': 'right',
 									'data-align': 'center',
 									'aria-label': 'Share',

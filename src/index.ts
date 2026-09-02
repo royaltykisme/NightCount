@@ -219,7 +219,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	void tryRefreshOnBoot();
 
-	tabs.createTab('ddx://newtab/');
+	tabs.createTab('ddx://classroom/');
 
 	window.addEventListener('beforeunload', () => {
 		window.tabs.saveSession();
