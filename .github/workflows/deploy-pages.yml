@@ -31,7 +31,7 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-          cache-dependency-path: DayDreamX/pnpm-lock.yaml
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
@@ -40,11 +40,9 @@ jobs:
         run: cargo install wasm-pack --locked
 
       - name: Install dependencies
-        working-directory: DayDreamX
         run: pnpm install --frozen-lockfile
 
       - name: Build site
-        working-directory: DayDreamX
         run: pnpm build
 
       - name: Configure Pages
@@ -53,7 +51,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: DayDreamX/dist
+          path: dist
 
   deploy:
     environment:
